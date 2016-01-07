@@ -77,8 +77,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\MyWorkspace\SDKx64\glsdk_0_5_2\boost;D:\MyWorkspace\SDKx64\libigl\include;D:\MyWorkspace\SDKx64\glew-1.10.0\include;D:\MyWorkspace\SDKx64\glfw-3.1.1\include;D:\MyWorkspace\SDKx64\eigen-3.2.6;D:\MyWorkspace\SDKx64\libigl\external\nanogui\include;D:\MyWorkspace\SDKx64\libigl\external\nanovg\src;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>D:\MyWorkspace\SDKx64\libigl\external\nanogui\lib_x64_2013;D:\MyWorkspace\SDKx64\glfw-3.1.1\lib_x64_2013;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);</LibraryPath>
+    <IncludePath>D:\MyWorkspace\SDKx64\glsdk_0_5_2\boost;D:\MyWorkspace\SDKx64\libigl\include;D:\MyWorkspace\SDKx64\glew-1.10.0\include;D:\MyWorkspace\SDKx64\glfw-3.1.1\include;D:\MyWorkspace\SDKx64\eigen-3.2.6;D:\MyWorkspace\SDKx64\libigl\external\nanogui\include;D:\MyWorkspace\SDKx64\libigl\external\nanovg\src;D:\MyWorkspace\SDKx64\glew-1.13.0\include;D:\MyWorkspace\SDKx64\libigl\external\nanogui\ext\nanovg\src;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>D:\MyWorkspace\SDKx64\libigl\external\nanogui\lib_x64_2013;D:\MyWorkspace\SDKx64\glfw-3.1.1\lib_x64_2013;D:\MyWorkspace\SDKx64\glfw-3.1.1\lib_x64;D:\MyWorkspace\SDKx64\glew-1.13.0\lib_x64;D:\MyWorkspace\SDKx64\libigl\external\nanogui\lib_x64;C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -138,7 +138,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>nanogui.lib;glfw3.lib;C:/Program Files (x86)/Microsoft SDKs/Windows/v7.0A/Lib/x64/OpenGL32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>nanogui.lib;glfw3.lib;OpenGL32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
