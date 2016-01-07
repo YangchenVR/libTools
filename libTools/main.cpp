@@ -5,21 +5,24 @@
 #include <igl/viewer/Viewer.h>
 #include <algorithm>
 #include <iostream>
-#include "VR_Global_Define.h"
+
+#include "vrTypes.h"
+using namespace VR;
 
 #define MyMeshPath "D:/MyWorkspace/MyMesh/OBJ/"
-YC::MyDenseVector purple(80.0 / 255.0, 64.0 / 255.0, 255.0 / 255.0);
-YC::MyDenseVector gold(255.0 / 255.0, 228.0 / 255.0, 58.0 / 255.0);
+vrVec3 purple(80.0 / 255.0, 64.0 / 255.0, 255.0 / 255.0);
+vrVec3 gold(255.0 / 255.0, 228.0 / 255.0, 58.0 / 255.0);
 
 
 bool deformation_field = false;
-YC::MyMatrix V, U, V_disp;
-YC::MyVector Z;
-YC::MyIntMatrix F;
-YC::MyIntVector b;
-YC::MyInt g_iVtxSize = 0;
 
-void computeVertexDisp(const YC::MyVector& dispVec, YC::MyMatrix& dispMat, const YC::MyInt nVtxSize)
+vrMat V, U, V_disp;
+vrVec Z;
+vrMatI F;
+vrVecI b;
+vrInt g_iVtxSize = 0;
+
+void computeVertexDisp(const vrVec& dispVec, vrMat& dispMat, const vrInt nVtxSize)
 {
 }
 
@@ -57,11 +60,17 @@ int main(int argc, char *argv[])
   using namespace Eigen;
   using namespace std;
   igl::readOBJ(MyMeshPath "Bunny_3w.obj", V, F);
-  U=V;
-  
+  U = V;
 
+  {
+	  using namespace VR;
+	  
+	  std::vector<int> v(50);
+	  std::generate(v.begin(), v.end(), std::rand); // Using the C function rand()
+	  vrPrintContainer(v);
+  }
   // Pseudo-color based on selection
-  YC::MyMatrix C(F.rows(), 3);
+  vrMat C(F.rows(), 3);
   for(int f = 0;f<F.rows();f++)
   {
 	  C.row(f) = gold;

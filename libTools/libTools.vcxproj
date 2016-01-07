@@ -143,11 +143,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="VR_Global_Define.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyMacro.h" />
-    <ClInclude Include="VR_Global_Define.h" />
+    <ClInclude Include="vrCoordinate.h" />
+    <ClInclude Include="vrIterator.h" />
+    <ClInclude Include="vrMacro.h" />
+    <ClInclude Include="vrPrintf.h" />
+    <ClInclude Include="vrString.h" />
+    <ClInclude Include="vrTypes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -18,15 +18,24 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="VR_Global_Define.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyMacro.h">
+    <ClInclude Include="vrMacro.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="VR_Global_Define.h">
+    <ClInclude Include="vrTypes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vrString.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vrPrintf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vrIterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vrCoordinate.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
