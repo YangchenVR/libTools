@@ -6,12 +6,12 @@
 #include <boost/format.hpp>
 namespace VR
 {
-	class vrString :public std::string
+	/*class vrString :public std::string
 	{
 	public:
 
-	};
-	
+	};*/
+	typedef std::string vrString;
 
 	template<class TFirst>
 	void string_format(boost::format& fmt, TFirst&& first)

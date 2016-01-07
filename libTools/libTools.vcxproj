@@ -145,12 +145,18 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="easyloggingpp\easylogging++.h" />
     <ClInclude Include="vrCoordinate.h" />
     <ClInclude Include="vrIterator.h" />
     <ClInclude Include="vrMacro.h" />
     <ClInclude Include="vrPrintf.h" />
     <ClInclude Include="vrString.h" />
     <ClInclude Include="vrTypes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\x64\Release\conf\log.conf">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

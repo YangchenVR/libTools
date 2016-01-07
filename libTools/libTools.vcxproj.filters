@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{97935845-6dbe-4ba7-aa39-201159b4eaf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Conf">
+      <UniqueIdentifier>{3afb26d2-b9c2-4d4c-a108-c56c797eb5d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Conf\Release">
+      <UniqueIdentifier>{65f550e1-2400-452c-a3d2-a39d01039fd8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -38,5 +47,13 @@
     <ClInclude Include="vrCoordinate.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="easyloggingpp\easylogging++.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\x64\Release\conf\log.conf">
+      <Filter>Conf\Release</Filter>
+    </None>
   </ItemGroup>
 </Project>

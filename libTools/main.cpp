@@ -9,6 +9,11 @@
 #include "vrTypes.h"
 using namespace VR;
 
+#if vrLoggingPP
+#include "easyloggingpp/easylogging++.h"
+INITIALIZE_EASYLOGGINGPP
+#endif//vrLoggingPP
+
 #define MyMeshPath "D:/MyWorkspace/MyMesh/OBJ/"
 vrVec3 purple(80.0 / 255.0, 64.0 / 255.0, 255.0 / 255.0);
 vrVec3 gold(255.0 / 255.0, 228.0 / 255.0, 58.0 / 255.0);
@@ -59,6 +64,14 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
+
+#if vrLoggingPP
+  el::Configurations conf("./conf/log.conf");
+  el::Loggers::reconfigureAllLoggers(conf);
+#endif//#if vrLoggingPP
+
+  LOG(INFO) << string_format("obj path : %s", MyMeshPath "Bunny_3w.obj");
+  LOG(WARNING) << "WARNING";
   igl::readOBJ(MyMeshPath "Bunny_3w.obj", V, F);
   U = V;
 

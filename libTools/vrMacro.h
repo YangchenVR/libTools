@@ -24,6 +24,7 @@
 #define vrMatRowMajor (1)
 #define vrMatColMajor (0)
 #define vrMatStoreType vrMatRowMajor
+#define vrLoggingPP (1)
 #else
 	#error("Unsupport OS Type!") 
 #endif
