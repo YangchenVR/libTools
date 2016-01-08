@@ -25,6 +25,16 @@
 #define vrMatColMajor (0)
 #define vrMatStoreType vrMatRowMajor
 #define vrLoggingPP (1)
+#if vrLoggingPP
+#define infoLog LOG(INFO)
+#define debugLog LOG(DEBUG)
+#define warningLog LOG(WARNING)
+//#define globalLog LOG(GLOBAL)
+#define traceLog LOG(TRACE)
+#define fatalLog LOG(FATAL)
+#define errorLog LOG(ERROR)
+#define verboseLog VLOG(1)
+#endif
 #else
 	#error("Unsupport OS Type!") 
 #endif

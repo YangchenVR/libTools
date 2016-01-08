@@ -6,13 +6,35 @@
 #include <algorithm>
 #include <iostream>
 
-#include "vrTypes.h"
+#include "vrHead.h"
+#include "vrFileSystem.h"
+#include "vrConfigureParser.h"
 using namespace VR;
 
-#if vrLoggingPP
-#include "easyloggingpp/easylogging++.h"
-INITIALIZE_EASYLOGGINGPP
-#endif//vrLoggingPP
+
+namespace VR
+{
+	
+	void init_global()
+	{
+		std::map< vrString, vrString > propertyMap;
+		vrString inifile = FileSystem::get_currentpath() + vrString("/conf/param.conf");
+		propertyMap[vrString("Obj.hasCoord")];
+		propertyMap[vrString("Obj.hasVerticeNormal")];
+		propertyMap[vrString("Obj.normalizeMesh")];
+		propertyMap[vrString("Obj.meshName")];
+		propertyMap[vrString("Obj.textureName")];
+		propertyMap[vrString("Obj.meshId")];
+		propertyMap[vrString("Obj.octreeFineLevel")];
+		propertyMap[vrString("Simulation.doSimulation")];
+		propertyMap[vrString("Simulation.MinCount")];
+		propertyMap[vrString("Simulation.MaxCount")];
+		propertyMap[vrString("Simulation.YoungModulus")];
+		propertyMap[vrString("Simulation.externalForceFactor")];
+		propertyMap[vrString("Simulation.scriptForceFactor")];
+		VR::ConfigureParser::parser_configurefile(inifile, propertyMap);
+	}
+}
 
 #define MyMeshPath "D:/MyWorkspace/MyMesh/OBJ/"
 vrVec3 purple(80.0 / 255.0, 64.0 / 255.0, 255.0 / 255.0);
@@ -66,12 +88,19 @@ int main(int argc, char *argv[])
   using namespace std;
 
 #if vrLoggingPP
+  START_EASYLOGGINGPP(argc, argv);
   el::Configurations conf("./conf/log.conf");
   el::Loggers::reconfigureAllLoggers(conf);
+  infoLog << string_format("Start using loggingPP %s","abc");
 #endif//#if vrLoggingPP
+  {
+	  infoLog << "current path :" << VR::FileSystem::get_currentpath();
+	  VR::init_global();
+	  
+	  //VR::FileSystem::printPathParts("E:\\DATA\\books.txt");
+  }
 
-  LOG(INFO) << string_format("obj path : %s", MyMeshPath "Bunny_3w.obj");
-  LOG(WARNING) << "WARNING";
+ 
   igl::readOBJ(MyMeshPath "Bunny_3w.obj", V, F);
   U = V;
 

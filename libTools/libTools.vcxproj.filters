@@ -50,6 +50,15 @@
     <ClInclude Include="easyloggingpp\easylogging++.h">
       <Filter>Log</Filter>
     </ClInclude>
+    <ClInclude Include="vrFileSystem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vrConfigureParser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vrHead.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\x64\Release\conf\log.conf">

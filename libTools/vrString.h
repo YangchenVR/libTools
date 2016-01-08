@@ -13,7 +13,7 @@ namespace VR
 	};*/
 	typedef std::string vrString;
 
-	template<class TFirst>
+	/*template<class TFirst>
 	void string_format(boost::format& fmt, TFirst&& first)
 	{
 		fmt % first;
@@ -32,6 +32,24 @@ namespace VR
 		boost::format fmt(format);
 		string_format(fmt, first, other...);
 		return fmt.str();
+	}*/
+
+	vrString awesome_printf_helper(boost::format& f){
+		return boost::str(f);
+	}
+
+	template<class T, class... Args>
+	vrString awesome_printf_helper(boost::format& f, T&& t, Args&&... args){
+		return awesome_printf_helper(f % std::forward<T>(t), std::forward<Args>(args)...);
+	}
+
+	template<typename... Arguments>
+	vrString string_format(std::string const& fmt, Arguments&&... args)
+	{
+		boost::format f(fmt);
+		return awesome_printf_helper(f, std::forward<Arguments>(args)...);
+		//auto result = awesome_printf_helper(f, std::forward<Arguments>(args)...);
+		//std::cout << result;
 	}
 }//namespace VR
 

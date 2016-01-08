@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <iterator>
 
-#include "vrString.h"
+#include "vrHead.h"
 namespace VR
 {
 	template<class TFirst, class... TOther>
@@ -12,6 +12,7 @@ namespace VR
 	{
 		boost::format fmt(format);
 		string_format(fmt, first, other...);
+		//infoLog << fmt.str();
 		std::cout << fmt.str() << std::endl;
 	}
 
