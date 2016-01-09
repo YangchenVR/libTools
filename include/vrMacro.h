@@ -15,7 +15,7 @@
 #define vrASSERT(X) do{if (!(X)){/*printf("%s\n",#X);*/system("pause");}}while(false)
 #define vrDim (3)
 #define vrBufferSize (256)
-#define MyNotice
+#define vrNotice
 #define LogInfo printf
 #define VNAME(name) (#name)
 #define INFOVAR(name) std::cout << VNAME(name) << " = " << name << std::endl;
@@ -24,17 +24,8 @@
 #define vrMatRowMajor (1)
 #define vrMatColMajor (0)
 #define vrMatStoreType vrMatRowMajor
-#define vrLoggingPP (1)
-#if vrLoggingPP
-#define infoLog LOG(INFO)
-#define debugLog LOG(DEBUG)
-#define warningLog LOG(WARNING)
-//#define globalLog LOG(GLOBAL)
-#define traceLog LOG(TRACE)
-#define fatalLog LOG(FATAL)
-#define errorLog LOG(ERROR)
-#define verboseLog VLOG(1)
-#endif
+#define vrLoggingPP (0)
+
 #else
 	#error("Unsupport OS Type!") 
 #endif

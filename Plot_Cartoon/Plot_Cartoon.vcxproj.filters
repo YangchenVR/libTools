@@ -13,21 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Conf">
-      <UniqueIdentifier>{3afb26d2-b9c2-4d4c-a108-c56c797eb5d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Conf\Release">
-      <UniqueIdentifier>{65f550e1-2400-452c-a3d2-a39d01039fd8}</UniqueIdentifier>
+    <Filter Include="Rotation">
+      <UniqueIdentifier>{8795dd1c-6120-4035-9aba-c9c3ba2df737}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Rotation\3dmath.cpp">
+      <Filter>Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\ArcBall.cpp">
+      <Filter>Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="Rotation\BallController.cpp">
+      <Filter>Rotation</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\x64\Release\conf\log.conf">
-      <Filter>Conf\Release</Filter>
-    </None>
+    <ClInclude Include="Rotation\3dmath.h">
+      <Filter>Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\ArcBall.h">
+      <Filter>Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotation\BallController.h">
+      <Filter>Rotation</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

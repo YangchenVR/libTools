@@ -6,9 +6,7 @@
 #include <algorithm>
 #include <iostream>
 
-#include "vrHead.h"
-#include "vrFileSystem.h"
-#include "vrConfigureParser.h"
+#include "vrBase.h"
 using namespace VR;
 
 
@@ -94,7 +92,7 @@ int main(int argc, char *argv[])
   infoLog << string_format("Start using loggingPP %s","abc");
 #endif//#if vrLoggingPP
   {
-	  infoLog << "current path :" << VR::FileSystem::get_currentpath();
+	  //infoLog << "current path :" << VR::FileSystem::get_currentpath();
 	  VR::init_global();
 	  
 	  //VR::FileSystem::printPathParts("E:\\DATA\\books.txt");

@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{873F840A-AA7C-4616-A035-16E91EB140A2}</ProjectGuid>
+    <ProjectGuid>{DDCEEE21-22C2-401E-BABF-48A76CEA5E3E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>libTools</RootNamespace>
+    <RootNamespace>Plot_Cartoon</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -68,17 +68,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\MyWorkspace\MyPaper\Plot\freetype-gl-master\freetype-gl-master;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\MyWorkspace\MyPaper\Plot\freetype-gl-master\freetype-gl-master;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\MyWorkspace\SDKx64\boost_1_58_0_vs2013;D:\MyWorkspace\SDKx64\libigl\include;D:\MyWorkspace\SDKx64\glew-1.10.0\include;D:\MyWorkspace\SDKx64\glfw-3.1.1\include;D:\MyWorkspace\SDKx64\eigen-3.2.6;D:\MyWorkspace\SDKx64\libigl\external\nanogui\include;D:\MyWorkspace\SDKx64\libigl\external\nanovg\src;D:\MyWorkspace\SDKx64\glew-1.13.0\include;D:\MyWorkspace\SDKx64\libigl\external\nanogui\ext\nanovg\src;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
-    <LibraryPath>D:\MyWorkspace\SDKx64\libigl\external\nanogui\lib_x64_2013;D:\MyWorkspace\SDKx64\glfw-3.1.1\lib_x64_2013;D:\MyWorkspace\SDKx64\glfw-3.1.1\lib_x64;D:\MyWorkspace\SDKx64\glew-1.13.0\lib_x64;D:\MyWorkspace\SDKx64\libigl\external\nanogui\lib_x64;C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib\x64;D:\MyWorkspace\SDKx64\boost_1_58_0_vs2013\lib64-msvc-12.0;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
+    <IncludePath>D:\MyWorkspace\SDKx64\freeglut-2.8.1\include;D:\MyWorkspace\SDKx64\glsdk_0_5_2\glm;D:\MyWorkspace\SDKx64\SOIL;D:/MyWorkspace/SDKx64/freetype-gl/windows/glut;D:/MyWorkspace/SDKx64/freetype-gl/windows/freetype;D:/MyWorkspace/SDKx64/freetype-gl;D:/MyWorkspace/SDKx64/freetype-gl/windows/include;D:/MyWorkspace/SDKx64/freetype-gl/windows/glew/include;D:/MyWorkspace/SDKx64/freetype-gl/windows;D:/MyWorkspace/SDKx64/freetype-gl/windows/freetype/freetype;D:/MyWorkspace/SDKx64/freetype-gl/windows/AntTweakBar/include;D:\MyWorkspace\SDKx64\glew-1.10.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\MyWorkspace\SDKx64\freetype-gl\build\Release;D:\MyWorkspace\SDKx64\glew-1.10.0\lib_x64_2013;D:\MyWorkspace\SDKx64\freeglut-2.8.1\lib\x64\vs2013;D:\MyWorkspace\SDKx64\SOIL\lib_x64_2013;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -131,26 +133,28 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>nanogui.lib;glfw3.lib;OpenGL32.Lib;../lib/$(Platform)/Base.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;soil.lib;freetype-gl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="Rotation\3dmath.cpp" />
+    <ClCompile Include="Rotation\ArcBall.cpp" />
+    <ClCompile Include="Rotation\BallController.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\x64\Release\conf\log.conf">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </None>
+    <ClInclude Include="Rotation\3dmath.h" />
+    <ClInclude Include="Rotation\ArcBall.h" />
+    <ClInclude Include="Rotation\BallController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,7 +4,6 @@
 #include <algorithm>
 #include <iterator>
 
-#include "vrHead.h"
 namespace VR
 {
 	template<class TFirst, class... TOther>

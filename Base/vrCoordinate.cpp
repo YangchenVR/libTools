@@ -1,12 +1,10 @@
-#ifndef _vrCoordinate_h_
-#define _vrCoordinate_h_
+#include "vrCoordinate.h"
 
 namespace VR
 {
-	class vec3LessCompare
+	namespace Coord
 	{
-	public:
-		bool operator ()(const vrVec3& lhs, const vrVec3& rhs)const
+		bool vec3LessCompare::operator()(const vrVec3& lhs, const vrVec3& rhs)const
 		{
 			if (lhs[2] < rhs[2])
 			{
@@ -38,12 +36,9 @@ namespace VR
 			// Otherwise z and y and x are all equal
 			return false;
 		}
-	};
 
-	class vec2LessCompare
-	{
-	public:
-		bool operator ()(const vrVec2& lhs, const vrVec2& rhs)const
+		
+		bool vec2LessCompare::operator()(const vrVec2& lhs, const vrVec2& rhs)const
 		{
 			// Otherwise z is equal
 			if (lhs[1] < rhs[1])
@@ -67,7 +62,5 @@ namespace VR
 			// Otherwise z and y and x are all equal
 			return false;
 		}
-	};
-}
-
-#endif//_vrCoordinate_h_
+	}//namespace Coord
+}//namespace VR

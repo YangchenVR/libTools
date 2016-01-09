@@ -1,9 +1,7 @@
-#ifndef _vrConfigureParser_h_
-#define _vrConfigureParser_h_
-#include "vrTypes.h"
+#include "vrConfigureParser.h"
+#include "vrLog.h"
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ini_parser.hpp>
-
 namespace VR
 {
 	namespace ConfigureParser
@@ -15,10 +13,8 @@ namespace VR
 			for (auto& itr : propertyMap)
 			{
 				itr.second = pt.get<vrString>(itr.first);
-				infoLog << (itr.first) << " " << (itr.second);
+				//infoLog << (itr.first) << " " << (itr.second);
 			}
 		}
 	}//namespace ConfigureParser
 }//namespace VR
-
-#endif//_vrConfigureParser_h_

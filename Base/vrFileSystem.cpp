@@ -59,17 +59,18 @@ namespace VR
 			std::cout << "generic: " << cwd.generic_string() << '\n';
 			std::cout << "native: " << cwd.string() << '\n';
 			std::cout << "quoted: " << cwd << '\n';
-			
+
 			std::cout << "Components: \n";
 			for (const auto& dir : cwd) {
 				std::cout << '[' << dir.string() << ']'; // each part
-				
+
 			}
 			std::cout << '\n';
 		}
 
-		void printPathParts(const fs::path& p1)
+		void printPathParts(const vrString& strPath)
 		{
+			const fs::path p1(strPath);
 			std::cout << "For path: " << p1.string() << '\n';
 
 			if (p1.is_relative()) {
