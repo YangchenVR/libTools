@@ -67,8 +67,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>D:\MyWorkspace\MyPaper\2.Utility\MyGitTestProject\libTools\include;D:\MyWorkspace\SDKx64\boost_1_58_0_vs2013;D:\MyWorkspace\SDKx64\eigen-3.2.6;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>D:\MyWorkspace\SDKx64\freeglut-2.8.1\include;D:\MyWorkspace\MyPaper\2.Utility\MyGitTestProject\libTools\include;D:\MyWorkspace\SDKx64\boost_1_58_0_vs2013;D:\MyWorkspace\SDKx64\eigen-3.2.6;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)\lib\$(Platform)</OutDir>
+    <LibraryPath>D:\MyWorkspace\SDKx64\freeglut-2.8.1\lib\x64\vs2013;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -143,6 +144,7 @@
     <ClInclude Include="..\include\vrIterator.h" />
     <ClInclude Include="..\include\vrMacro.h" />
     <ClInclude Include="..\include\vrPrintf.h" />
+    <ClInclude Include="..\include\vrRotation.h" />
     <ClInclude Include="..\include\vrString.h" />
     <ClInclude Include="..\include\vrTypes.h" />
   </ItemGroup>
@@ -151,6 +153,7 @@
     <ClCompile Include="vrCoordinate.cpp" />
     <ClCompile Include="vrFileSystem.cpp" />
     <ClCompile Include="vrIterator.cpp" />
+    <ClCompile Include="vrRotation.cpp" />
     <ClCompile Include="vrString.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

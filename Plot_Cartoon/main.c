@@ -47,9 +47,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform2.hpp>
 #include "vrRotation.h"
-//#include "Rotation/BallController.h"
-
-#define MyPause system("pause");
+#include "vrString.h"
 
 //VR_FEM::CBallController g_trackball_2(0.5f, unitquaternion(DegToRad(1 * 180), myVector(0, 1, 0))*unitquaternion(DegToRad(-30 * 0), myVector(1, 0, 0)));
 VR::Interactive::vrBallController g_trackball_1(0.5f, 
@@ -574,7 +572,7 @@ void keyboard( unsigned char key, int x, int y )
 	{
 #ifndef _DEBUG
 		std::stringstream ss;
-		float x,y,z,w;
+		VR::Interactive::myReal x, y, z, w;
 		g_trackball_1.getRotationInfo(x,y,z,w);
 		//g_trackball_2.getRotationInfo(x, y, z, w);
 		ss << QuadsMeshpath << "_"<<x<< "_"<<y<< "_"<<z<< "_"<<w << ".bmp";
@@ -665,12 +663,12 @@ int ComputeDomainId(const glm::vec3 loc)
 		}
 		else
 		{
-			printf("ERROR 0 %f \n",loc[0]);MyPause
+			printf("ERROR 0 %f \n", loc[0]); vrPause;
 		}
 	}
 	else
 	{
-		printf("ERROR 1 %f \n",loc[1]);MyPause
+		printf("ERROR 1 %f \n", loc[1]); vrPause;
 	}
 }
 
@@ -859,6 +857,11 @@ void unloadPG2015ObjMesh(vertex_buffer_t ** cubePtr)
 // ------------------------------------------------------------------- main ---
 int main( int argc, char **argv )
 {
+	{
+		VR::vrString str("15456465465");
+		str = VR::string_format("456456456465");
+	}
+
     glutInit( &argc, argv );
     glutInitWindowSize( windowWidth,windowHeight );
 	

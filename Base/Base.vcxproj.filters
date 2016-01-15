@@ -54,6 +54,9 @@
     <ClInclude Include="..\include\vrLog.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\vrRotation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="vrFileSystem.cpp">
@@ -69,6 +72,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="vrString.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="vrRotation.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
