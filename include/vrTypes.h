@@ -21,6 +21,7 @@ namespace VR
 #if DoublePrecision
 	typedef double vrFloat;
 	typedef int   vrInt;
+	typedef char * vrLpsz;
 	typedef Eigen::MatrixXd vrMat;
 	typedef Eigen::Vector2d vrVec2;
 	typedef Eigen::Vector3d vrVec3;

@@ -7,6 +7,7 @@
 namespace VR
 {
 	typedef std::string vrString;
+	
 
 	vrString awesome_printf_helper(boost::format& f);
 

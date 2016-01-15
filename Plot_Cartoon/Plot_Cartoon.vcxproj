@@ -79,8 +79,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>D:\MyWorkspace\SDKx64\eigen-3.2.6;D:\MyWorkspace\SDKx64\boost_1_58_0_vs2013;D:\MyWorkspace\SDKx64\freeglut-2.8.1\include;D:\MyWorkspace\SDKx64\glsdk_0_5_2\glm;D:\MyWorkspace\SDKx64\SOIL;D:/MyWorkspace/SDKx64/freetype-gl/windows/glut;D:/MyWorkspace/SDKx64/freetype-gl/windows/freetype;D:/MyWorkspace/SDKx64/freetype-gl;D:/MyWorkspace/SDKx64/freetype-gl/windows/include;D:/MyWorkspace/SDKx64/freetype-gl/windows/glew/include;D:/MyWorkspace/SDKx64/freetype-gl/windows;D:/MyWorkspace/SDKx64/freetype-gl/windows/freetype/freetype;D:/MyWorkspace/SDKx64/freetype-gl/windows/AntTweakBar/include;D:\MyWorkspace\SDKx64\glew-1.10.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\MyWorkspace\SDKx64\freetype-gl\build\Release;D:\MyWorkspace\SDKx64\glew-1.10.0\lib_x64_2013;D:\MyWorkspace\SDKx64\freeglut-2.8.1\lib\x64\vs2013;D:\MyWorkspace\SDKx64\SOIL\lib_x64_2013;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\MyWorkspace\SDKx64\glsdk_0_5_2\freeglut\include;D:\MyWorkspace\SDKx64\boost_1_58_0;D:\MyWorkspace\SDKx64\glew-1.13.0\include;D:\MyWorkspace\SDKx64\freetype-gl-master;D:\MyWorkspace\SDKx64\eigen-3.2.6;D:\MyWorkspace\SDKx64\boost_1_58_0_vs2013;D:\MyWorkspace\SDKx64\freeglut-2.8.1\include;D:\MyWorkspace\SDKx64\glsdk_0_5_2\glm;D:\MyWorkspace\SDKx64\SOIL;D:/MyWorkspace/SDKx64/freetype-gl/windows/glut;D:/MyWorkspace/SDKx64/freetype-gl/windows/freetype;D:/MyWorkspace/SDKx64/freetype-gl;D:/MyWorkspace/SDKx64/freetype-gl/windows/include;D:/MyWorkspace/SDKx64/freetype-gl/windows/glew/include;D:/MyWorkspace/SDKx64/freetype-gl/windows;D:/MyWorkspace/SDKx64/freetype-gl/windows/freetype/freetype;D:/MyWorkspace/SDKx64/freetype-gl/windows/AntTweakBar/include;D:\MyWorkspace\SDKx64\glew-1.10.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\MyWorkspace\SDKx64\boost_1_58_0\lib64-msvc-12.0;D:\MyWorkspace\SDKx64\freetype-gl-master\build\Release;D:\MyWorkspace\SDKx64\SOIL\lib;D:\MyWorkspace\SDKx64\glsdk_0_5_2\freeglut\lib\Release;D:\MyWorkspace\SDKx64\glew-1.13.0\lib_x64;D:\MyWorkspace\SDKx64\freetype-gl\build\Release;D:\MyWorkspace\SDKx64\glew-1.10.0\lib_x64_2013;D:\MyWorkspace\SDKx64\freeglut-2.8.1\lib\x64\vs2013;D:\MyWorkspace\SDKx64\SOIL\lib_x64_2013;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -143,7 +143,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>glew32.lib;soil.lib;freetype-gl.lib;freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;soil.lib;freetype-gl.lib;freeglut.lib;../lib/x64/Base.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

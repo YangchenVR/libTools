@@ -6,7 +6,10 @@ namespace VR
 {
 	namespace ConfigureParser
 	{
-		extern void parser_configurefile(const vrString& strConf, std::map< vrString, vrString >& propertyMap);
+		typedef std::map< vrString, vrString > vrPropertyMap;
+		extern vrString makeKey(const vrLpsz strSection, const vrLpsz strName);
+		extern vrString getConfPropertyValue(const vrPropertyMap& propertyMap, const vrString& strKey);
+		extern void parser_configurefile(const vrString& strConf, vrPropertyMap& propertyMap);
 		
 	}//namespace ConfigureParser
 }//namespace VR

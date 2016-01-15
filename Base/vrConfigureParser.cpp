@@ -6,7 +6,17 @@ namespace VR
 {
 	namespace ConfigureParser
 	{
-		void parser_configurefile(const vrString& strConf, std::map< vrString, vrString >& propertyMap)
+		vrString makeKey(const vrLpsz lpszSection, const vrLpsz lpszName)
+		{
+			return string_format("%s.%s", lpszSection, lpszName);
+		}
+
+		vrString getConfPropertyValue(const vrPropertyMap& propertyMap, const vrString& strKey)
+		{
+			return propertyMap.at(strKey);
+		}
+
+		void parser_configurefile(const vrString& strConf, vrPropertyMap& propertyMap)
 		{
 			boost::property_tree::ptree pt;
 			boost::property_tree::ini_parser::read_ini(strConf, pt);

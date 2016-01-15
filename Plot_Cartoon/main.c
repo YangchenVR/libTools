@@ -69,7 +69,8 @@ VR::Interactive::vrBallController g_trackball_1(0.5f,
 #define ObjMeshPath "D:/PG2015MESH-okok/frame_"
 //armadillo_surface_hex_mesh_level7_quads.obj
 //"bunny_surface_hex_mesh_level7_quads.obj"
-#define QuadsMeshpath "d:/armadillo_surface_hex_mesh_level8.obj"
+//#define QuadsMeshpath "D:/MyWorkspace/MyMesh/OBJ/For_Plot/armadillo_surface_hex_mesh_level7.obj"
+VR::vrString QuadsMeshpath;
 //#define MY_SHAPE GL_TRIANGLES
 #define MY_SHAPE GL_QUADS
 #include <vector>
@@ -857,9 +858,17 @@ void unloadPG2015ObjMesh(vertex_buffer_t ** cubePtr)
 // ------------------------------------------------------------------- main ---
 int main( int argc, char **argv )
 {
+	using namespace VR;
 	{
-		VR::vrString str("15456465465");
-		str = VR::string_format("456456456465");
+		vrString inifile = FileSystem::get_currentpath() + vrString("/conf/plotCartoon.conf");
+		ConfigureParser::vrPropertyMap pm;
+		pm[ConfigureParser::makeKey("Mesh","Type")];
+		pm[ConfigureParser::makeKey("Mesh", "Path")];
+		ConfigureParser::parser_configurefile(inifile, pm);
+		QuadsMeshpath = ConfigureParser::getConfPropertyValue(pm, ConfigureParser::makeKey("Mesh", "Path"));
+		std::cout << ConfigureParser::getConfPropertyValue(pm, ConfigureParser::makeKey("Mesh", "Type")) << std::endl
+			<< ConfigureParser::getConfPropertyValue(pm, ConfigureParser::makeKey("Mesh", "Path")) << std::endl;
+		
 	}
 
     glutInit( &argc, argv );
@@ -890,7 +899,7 @@ int main( int argc, char **argv )
 
 
     
-    loadPG2015ObjMesh_Quads(QuadsMeshpath,&cube);
+	loadPG2015ObjMesh_Quads(vrCStr(QuadsMeshpath), &cube);
     shader = shader_load("shaders/cube.vert","shaders/cube.frag");
 
     init( );
