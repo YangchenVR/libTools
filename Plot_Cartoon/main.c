@@ -46,10 +46,15 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform2.hpp>
-#include "Rotation/BallController.h"
+#include "vrRotation.h"
+//#include "Rotation/BallController.h"
 
 #define MyPause system("pause");
-VR_FEM::CBallController g_trackball(0.5f,unitquaternion(DegToRad(1*180),myVector(0,1,0))*unitquaternion(DegToRad(-30*0),myVector(1,0,0)));
+
+//VR_FEM::CBallController g_trackball_2(0.5f, unitquaternion(DegToRad(1 * 180), myVector(0, 1, 0))*unitquaternion(DegToRad(-30 * 0), myVector(1, 0, 0)));
+VR::Interactive::vrBallController g_trackball_1(0.5f, 
+	VR::Interactive::unitquaternion(Eigen::AngleAxisd(VR::Cgmath::DegToRad(1 * 180), VR::vrVec3(0, 1, 0)))*
+	VR::Interactive::unitquaternion(Eigen::AngleAxisd(VR::Cgmath::DegToRad(-30 * 0), VR::vrVec3(1, 0, 0))));
 
 #if defined(__APPLE__)
     #include <Glut/glut.h>
@@ -414,8 +419,11 @@ void init( void )
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
     glEnable( GL_LINE_SMOOTH );
 
-	g_trackball.SetColor(RGB(130,80,30));
-	g_trackball.SetDrawConstraints();
+	g_trackball_1.SetColor(RGB(130,80,30));
+	g_trackball_1.SetDrawConstraints();
+
+	//g_trackball_2.SetColor(RGB(130, 80, 30));
+	//g_trackball_2.SetDrawConstraints();
 }
 
 
@@ -439,7 +447,8 @@ void display( void )
 	/*glRotatef(20,0,1,0);
 	glRotatef(25,1,0,0); // for bunny*/
 	
-	g_trackball.IssueGLrotation();
+	g_trackball_1.IssueGLrotation();
+	//g_trackball_2.IssueGLrotation();
 	glScalef(3.,3.,3.);
     glDisable( GL_BLEND );
     glEnable( GL_DEPTH_TEST );
@@ -481,7 +490,8 @@ void reshape( int width, int height )
     glLoadIdentity( );
     glTranslatef( 0.0, 0.0, -5.0 );
 
-	g_trackball.ClientAreaResize(VR_FEM::ERect(0,0,width,height));
+	g_trackball_1.ClientAreaResize(VR::Interactive::ERect(0,0,width,height));
+	//g_trackball_2.ClientAreaResize(VR_FEM::ERect(0, 0, width, height));
 	glutPostRedisplay();
 }
 
@@ -489,7 +499,8 @@ void motion(int x, int y)
 {
 	if (((GetKeyState( VK_CONTROL ) & 0x80) > 0)  /*|| GLUT_ACTIVE_ALT == glutGetModifiers()*/)
 	{
-		g_trackball.MouseMove(VR_FEM::EPoint(x,y));		
+		g_trackball_1.MouseMove(VR::Interactive::EPoint(x, y));
+		//g_trackball_2.MouseMove(VR_FEM::EPoint(x, y));
 		//printf("motion (%d,%d)\n",x,y);
 	}
 	
@@ -503,13 +514,15 @@ void mouse(int button, int state, int x, int y)
 		if (((GetKeyState( VK_CONTROL ) & 0x80) > 0) )
 		{
 			//g_trackball.setCuttingTrack(false);
-			g_trackball.MouseDown(VR_FEM::EPoint(x,y));
+			g_trackball_1.MouseDown(VR::Interactive::EPoint(x, y));
+			//g_trackball_2.MouseDown(VR_FEM::EPoint(x, y));
 			//printf("mouse down(%d,%d)\n",x,y);
 		}
 	} 
 	else if (state == GLUT_UP) 
 	{
-		g_trackball.MouseUp(VR_FEM::EPoint(x,y));
+		g_trackball_1.MouseUp(VR::Interactive::EPoint(x, y));
+		//g_trackball_2.MouseUp(VR_FEM::EPoint(x, y));
 		//printf("mouse up(%d,%d)\n",x,y);
 	}
 	glutPostRedisplay();
@@ -520,22 +533,26 @@ void Specialkeyboard(int key, int x, int y)
 	switch(key) {
 	case GLUT_KEY_LEFT:
 		{
-			g_trackball.Key(39);
+			g_trackball_1.Key(39);
+			//g_trackball_2.Key(39);
 			break;
 		}
 	case GLUT_KEY_RIGHT:
 		{
-			g_trackball.Key(37);
+			g_trackball_1.Key(37);
+			//g_trackball_2.Key(37);
 			break;
 		}
 	case GLUT_KEY_UP:
 		{
-			g_trackball.Key(38);
+			g_trackball_1.Key(38);
+			//g_trackball_2.Key(38);
 			break;
 		}
 	case GLUT_KEY_DOWN:
 		{
-			g_trackball.Key(40);
+			g_trackball_1.Key(40);
+			//g_trackball_2.Key(40);
 			break;
 		}
 	default:
@@ -558,7 +575,8 @@ void keyboard( unsigned char key, int x, int y )
 #ifndef _DEBUG
 		std::stringstream ss;
 		float x,y,z,w;
-		g_trackball.getRotationInfo(x,y,z,w);
+		g_trackball_1.getRotationInfo(x,y,z,w);
+		//g_trackball_2.getRotationInfo(x, y, z, w);
 		ss << QuadsMeshpath << "_"<<x<< "_"<<y<< "_"<<z<< "_"<<w << ".bmp";
 		SOIL_save_screenshot(ss.str().c_str(),	SOIL_SAVE_TYPE_BMP,	0, 0, glutGet(GLUT_WINDOW_WIDTH), glutGet(GLUT_WINDOW_HEIGHT));
 #endif

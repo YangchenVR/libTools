@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libTools", "libTools\libTools.vcxproj", "{873F840A-AA7C-4616-A035-16E91EB140A2}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Plot_Cartoon", "Plot_Cartoon\Plot_Cartoon.vcxproj", "{DDCEEE21-22C2-401E-BABF-48A76CEA5E3E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E5587C7B-67C7-4145-BBFF-4AA7258B06E7} = {E5587C7B-67C7-4145-BBFF-4AA7258B06E7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Base", "Base\Base.vcxproj", "{E5587C7B-67C7-4145-BBFF-4AA7258B06E7}"
 EndProject

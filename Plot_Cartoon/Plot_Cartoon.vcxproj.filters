@@ -18,27 +18,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Rotation\3dmath.cpp">
-      <Filter>Rotation</Filter>
-    </ClCompile>
-    <ClCompile Include="Rotation\ArcBall.cpp">
-      <Filter>Rotation</Filter>
-    </ClCompile>
-    <ClCompile Include="Rotation\BallController.cpp">
-      <Filter>Rotation</Filter>
-    </ClCompile>
     <ClCompile Include="main.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="vrRotation.cpp">
+      <Filter>Rotation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Rotation\3dmath.h">
-      <Filter>Rotation</Filter>
-    </ClInclude>
-    <ClInclude Include="Rotation\ArcBall.h">
-      <Filter>Rotation</Filter>
-    </ClInclude>
-    <ClInclude Include="Rotation\BallController.h">
+    <ClInclude Include="vrRotation.h">
       <Filter>Rotation</Filter>
     </ClInclude>
   </ItemGroup>

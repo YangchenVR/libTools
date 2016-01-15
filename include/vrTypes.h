@@ -6,6 +6,7 @@
 #include <Eigen/Sparse>
 #include <Eigen/SparseCore>
 #include <Eigen/Dense>
+#include <Eigen/Geometry> 
 #include <vector>
 #include <map>
 #include <set>
@@ -21,8 +22,10 @@ namespace VR
 	typedef double vrFloat;
 	typedef int   vrInt;
 	typedef Eigen::MatrixXd vrMat;
-	typedef Eigen::Vector3d vrVec3;
 	typedef Eigen::Vector2d vrVec2;
+	typedef Eigen::Vector3d vrVec3;
+	typedef Eigen::Vector4d vrVec4;
+	
 
 	typedef vrVec3 vrPoint;
 	typedef Eigen::MatrixXi vrMatI;
@@ -30,14 +33,18 @@ namespace VR
 	typedef Eigen::Vector3i vrVec3I;
 	typedef Eigen::VectorXd vrVec;
 	typedef Eigen::Matrix3d vrMat3;
+	typedef Eigen::Matrix4d vrMat4;
 	typedef Eigen::SparseMatrix<vrFloat, vrMatStoreType> vrSpMat;
+
+	typedef Eigen::Quaterniond vrQuaternion;
 
 #else //DoublePrecision
 	typedef float vrFloat;
 	typedef int   vrInt;
 	typedef Eigen::MatrixXf vrMat;
-	typedef Eigen::Vector3f vrVec3;
 	typedef Eigen::Vector2f vrVec2;
+	typedef Eigen::Vector3f vrVec3;
+	typedef Eigen::Vector4f vrVec4;
 
 	typedef vrVec3 vrPoint;
 	typedef Eigen::MatrixXi vrMatI;
@@ -45,7 +52,10 @@ namespace VR
 	typedef Eigen::Vector3i vrVec3I;
 	typedef Eigen::VectorXf vrVec;
 	typedef Eigen::Matrix3f vrMat3;
+	typedef Eigen::Matrix4f vrMat4;
 	typedef Eigen::SparseMatrix<vrFloat, vrMatStoreType> vrSpMat;
+
+	typedef Eigen::Quaternionf vrQuaternion;
 #endif//DoublePrecision
 	typedef enum{ FEM = 0, EFG = 1, COUPLE = 2, INVALIDTYPE = 3 } CellType;
 	
